@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class RegisterAccountPage extends BaseTest {
+public class RegisterAccountTest extends BaseTest {
     @Test (dataProvider = "getData")
     public void verifyRegistrationShouldBeSuccessful(String fname, String lname, String email, String tel, String pw, String cpw, String subLetter){
 
