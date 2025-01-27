@@ -3,13 +3,15 @@ package com.tutorialninja.base;
 import com.aventstack.extentreports.Status;
 import com.tutorialninja.report.ReportTestManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class BasePage extends Page{
+public class BasePage extends Page {
     public BasePage(WebDriver driver) {
         super(driver);
     }
@@ -59,8 +61,18 @@ public class BasePage extends Page{
         }
     }
 
-    public void setInfo(String message){
-        if(ReportTestManager.getTest() != null){
+    public Select selectValueFromDropdown(WebElement locator) {
+        Select select = new Select(locator);
+        return select;
+    }
+
+    public void scrollToElement(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    public void setInfo(String message) {
+        if (ReportTestManager.getTest() != null) {
             ReportTestManager.getTest().log(Status.INFO, message);
         }
     }

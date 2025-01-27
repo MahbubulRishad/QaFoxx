@@ -9,15 +9,19 @@ import org.testng.annotations.Test;
 public class CheckOutTest extends BaseTest {
 
     @Test
-    public void verifyAddToCartBtnIsDisplayed() throws InterruptedException {
+    public void verifyGuestUserSuccessfullyPlaceAnOrder() {
         CheckOutPage checkOutPage = page.getInstance(IndexPage.class)
                 .hoverOverOnDesktopMenuAndClickOnMacCategory()
                 .clickOnIMacProductDetails()
                 .fillProductQuantity(2)
                 .clickOnAddToCartBtn()
-                .clickOnShoppingCartLink();
+                .clickOnShoppingCartLink()
+                .fillUseCouponCode("ABCD")
+                .estimateShippingAndTaxes(3, 2, 2100)
+                .useGiftCertificate("abcx")
+                .clickOnCheckOutBtn();
 
-        Assert.assertTrue(checkOutPage.hasAddToCartBtnDisplayed());
+        Assert.assertTrue(checkOutPage.hasErrorMessageIsDisplayed());
 
     }
 

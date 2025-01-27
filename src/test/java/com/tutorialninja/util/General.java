@@ -3,12 +3,17 @@ package com.tutorialninja.util;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class General {
+
+    public static WebDriver driver;
 
     public static Object[][] getTestData(String sheetName) {
         String path = System.getProperty("user.dir") + "\\src\\test\\java\\com\\tutorialninja\\testData\\ddt.xlsx";
@@ -36,5 +41,13 @@ public class General {
             }
         }
         return data;
+    }
+
+    public static void elementLoadingTime(){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
