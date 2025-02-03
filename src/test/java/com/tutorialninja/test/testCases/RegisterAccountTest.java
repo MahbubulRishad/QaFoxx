@@ -17,7 +17,7 @@ public class RegisterAccountTest extends BaseTest {
                 .clickOnRegisterLink()
                 .fillFirstName(fname)
                 .fillLastName(lname)
-                .fillEmail(lorem.getEmail())
+                .fillEmail(email)
                 .fillTelephoneNo(tel.replaceAll(".0", "").trim())
                 .fillPassword(pw)
                 .fillConfirmPassword(cpw)

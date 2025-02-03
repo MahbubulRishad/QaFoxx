@@ -4,6 +4,8 @@ import com.tutorialninja.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.text.SimpleDateFormat;
+
 public class RegisterAccountPage extends BasePage {
     public RegisterAccountPage(WebDriver driver) {
         super(driver);
@@ -24,6 +26,9 @@ public class RegisterAccountPage extends BasePage {
     }
 
     public RegisterAccountPage fillEmail(String email) {
+
+        SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyyHHmmss");
+        email = email + formatter + "@abc.com"; // abc010121@abc.com
         getWebElement(By.xpath("//label[text() = 'E-Mail']/following-sibling::div/input[@id = 'input-email']")).sendKeys(email);
         return this;
     }

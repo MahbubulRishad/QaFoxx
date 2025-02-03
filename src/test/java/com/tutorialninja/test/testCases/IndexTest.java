@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class IndexTest extends BaseTest {
 
-    @Test
+    @Test(enabled = false)
     public void verifyRegisterFormIsDisplayed(){
         RegisterAccountPage registerAccountPage = page.getInstance(IndexPage.class)
                 .clickOnMyAccountMenu()

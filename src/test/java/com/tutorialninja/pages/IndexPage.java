@@ -1,6 +1,7 @@
 package com.tutorialninja.pages;
 
 import com.tutorialninja.base.BasePage;
+import com.tutorialninja.util.General;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -24,6 +25,7 @@ public class IndexPage extends BasePage {
 
     public ProductDetailsPage hoverOverOnDesktopMenuAndClickOnMacCategory() {
         Actions actions = new Actions(driver);
+        General.elementLoadingTime();
         actions.moveToElement(getWebElement(By.xpath("//a[contains(@class, 'dropdown-toggle') and text() = 'Desktops']"))).build().perform();
 
         getWebElement(By.xpath("//a[text() = 'Mac (1)']")).click();
